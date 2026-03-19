@@ -1,0 +1,10 @@
+scripts/*homeassistant/.storage/
+
+.devcontainer/
+        docker-compose.yml
+        homeassistant/
+
+
+echo "homeassistant/.storage/" >> .gitignore
+echo "homeassistant/config/.storage/" >> .gitignore
+echo "homeassistant/config/.cloud/" >> .gitignorehomeassistant/.storage/
