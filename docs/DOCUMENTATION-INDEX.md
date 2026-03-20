@@ -16,6 +16,7 @@
 |----------|---------|-----------|
 | [DEVICE-SETUP.md](DEVICE-SETUP.md) | Per-device integration guides (Nest, Ring, Hue, etc.) | 30 min |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Deep dive into system architecture & layers | 25 min |
+| [LOCAL-RASPBERRY-PI.md](LOCAL-RASPBERRY-PI.md) | **NEW** - Move from Codespaces to local/Pi | 20 min |
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Common issues, diagnostics, solutions | As needed |
 
 ## 💡 Smart Home Knowledge

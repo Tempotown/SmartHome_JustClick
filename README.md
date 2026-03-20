@@ -368,6 +368,8 @@ More help: [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
 | Document | Purpose |
 |----------|---------|
 | [foundation.md](foundation.md) | Detailed architecture & design decisions |
+| [docs/QUICK-START.md](docs/QUICK-START.md) | 5-minute setup walkthrough |
+| [docs/LOCAL-RASPBERRY-PI.md](docs/LOCAL-RASPBERRY-PI.md) | **← Move to local/Raspberry Pi production** |
 | [docs/DEVICE-SETUP.md](docs/DEVICE-SETUP.md) | Per-device integration guides |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Complete system architecture |
 | [scripts/TROUBLESHOOTING.md](scripts/TROUBLESHOOTING.md) | Common issues & solutions |

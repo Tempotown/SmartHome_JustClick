@@ -9,6 +9,7 @@ homeassistant/.cache/
 homeassistant/home-assistant.log*
 homeassistant/home-assistant_v2.db*
 homeassistant/home-assistant_v2.db-journal
+REPO-DISPLAY.md
 
 # Home Assistant state files (temporary, not user config)
 homeassistant/state.* 
