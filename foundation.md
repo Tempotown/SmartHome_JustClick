@@ -479,9 +479,7 @@ Homepage field → link to this GitHub repo
 Future-Proof Bonus
 When you have a real team, each person can publish their own skill from the same repo (different folders).
 Later you can also submit a PR to the official openclaw/skills GitHub repo for even more visibility.
-This means whatever we build here can instantly become a ClawHub skill — exactly like the original one you started with, but now powerful and executable
-**This README is now your single source of truth.**  
-Every future instruction I give you will reference sections in this document.
+This means whatever we build here can instantly sbecome a ClawHub skill — exactly like the original one you started with, but now powerful and executable
 
 **You are ready.**  
 
