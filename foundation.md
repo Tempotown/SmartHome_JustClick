@@ -321,9 +321,35 @@ When running on home network:
 |-----------|----------|----------|
 | **v1.0** | Now | Basic device control + automations |
 | **v1.1** | Q2 2026 | Local Zigbee hub support |
-| **v2.0** | Q3 2026 | AI skills (OpenClaw + llama.cpp) |
+| **v2.0** | Q3 2026 | AI skills (OpenClaw + Ollama/llama.cpp) |
 | **v2.1** | Q4 2026 | Multi-user support + team workflows |
 | **v3.0** | 2027 | Full Matter protocol support |
+
+---
+
+## Phase 3: AI Integration (Future)
+
+When you're ready (1-3 months from now), you'll add an optional AI layer:
+
+```
+User: "Turn on bedroom and set temperature to 72"
+  ↓
+Ollama/llama.cpp (natural language → intent)
+  ↓
+OpenClaw (intent → Home Assistant services)
+  ↓
+Home Assistant (service execution)
+  ↓
+Your Devices (respond to commands)
+```
+
+**Why separate from current setup?**
+- Don't need AI to start - basic automations are powerful
+- Each component independently upgradeable
+- Can add locally on Raspberry Pi later
+- Zero cost (all open-source)
+
+**See:** [docs/OPENCLAWINTEGRATION.md](../docs/OPENCLAWINTEGRATION.md) for complete AI setup guide (read later)
 
 ---
 

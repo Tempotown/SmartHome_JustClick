@@ -12,12 +12,13 @@
 
 ## 📖 Reference Guides
 
-| Document | Purpose | Read Time |
-|----------|---------|-----------|
-| [DEVICE-SETUP.md](DEVICE-SETUP.md) | Per-device integration guides (Nest, Ring, Hue, etc.) | 30 min |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | Deep dive into system architecture & layers | 25 min |
-| [LOCAL-RASPBERRY-PI.md](LOCAL-RASPBERRY-PI.md) | **NEW** - Move from Codespaces to local/Pi | 20 min |
-| [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Common issues, diagnostics, solutions | As needed |
+| Document | Purpose | Read Time | Phase |
+|----------|---------|-----------|-------|
+| [DEVICE-SETUP.md](DEVICE-SETUP.md) | Per-device integration guides (Nest, Ring, Hue, etc.) | 30 min | 1-2 |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Deep dive into system architecture & layers | 25 min | 1-2 |
+| [LOCAL-RASPBERRY-PI.md](LOCAL-RASPBERRY-PI.md) | Move from Codespaces to local/Pi | 20 min | 2-3 |
+| [OPENCLAWINTEGRATION.md](OPENCLAWINTEGRATION.md) | **← AI layer setup (for later)** | 20 min | **3+** |
+| [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Common issues, diagnostics, solutions | As needed | All |
 
 ## 💡 Smart Home Knowledge
 

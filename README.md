@@ -393,7 +393,29 @@ MIT License - See LICENSE file for details
 
 ---
 
-## 🎯 Next Steps
+## 🤖 Optional: AI-Powered Commands (Phase 3, Later)
+
+**Coming in 1-3 months:** Natural language automation with OpenClaw + Ollama/llama.cpp
+
+```
+"Turn on bedroom and set temperature to 72"
+  ↓
+Local AI understands intent
+  ↓
+OpenClaw routes to Home Assistant
+  ↓
+Your devices respond
+```
+
+**Why add it later?** 
+- YAML automations are powerful enough to start
+- AI layer adds 20+ min setup
+- Better to master basics first
+- Zero cost when you add it
+
+**See:** [docs/OPENCLAWINTEGRATION.md](docs/OPENCLAWINTEGRATION.md) for full AI integration guide (read in Phase 3)
+
+---
 
 1. **Start the stack:** `./scripts/start-dev.sh`
 2. **Access Home Assistant:** http://localhost:8123
