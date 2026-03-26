@@ -47,6 +47,7 @@ curl http://localhost:11434/api/generate \
     "stream": false
   }' | jq .
 
+
 # Or run interactively
 docker exec -it ollama ollama run mistral
 ```

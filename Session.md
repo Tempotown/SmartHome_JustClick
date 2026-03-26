@@ -3,7 +3,7 @@
 **Project:** SmartHome_JustClick Website  
 **Created:** March 22, 2026  
 **Purpose:** Track website development activities, major features, and iterative changes  
-**Status:** 🔵 Initialization Phase
+**Status:** 🟡 Phase D Scoped (Vercel UI + Render Orchestration)
 
 ---
 
@@ -18,7 +18,7 @@ This document logs the development of a website to showcase and manage SmartHome
 - **Tech Stack**: 
   - Backend: Home Assistant (Python/YAML)
   - Hardware: ESPHome, ESP32, Raspberry Pi
-  - Frontend (to be designed): TBD
+  - Frontend: Next.js app in `Hub/`
   - Deployment: Docker, GitHub Codespaces
 
 ---
@@ -64,28 +64,37 @@ git push origin main
 # Vercel auto-deploy triggers automatically
 ```
 
-### Phase B: Hero Section & Interactive Simulator
-- [ ] **B1** - Hero banner with lobster mascot & hover animations
-- [ ] **B2** - Live OpenClaw chat simulator (user types "Goodnight mode" → see YAML)
-- [ ] **B3** - "Open in Codespaces" + "Try Builder" CTA buttons
-- [ ] **B4** - Real-time OpenClaw chat responses with YAML preview
-- [ ] **B5** - One-click copy-to-clipboard for YAML snippets
+### Phase B: Hero Section & Interactive Simulator ✅ **COMPLETE** [2026-03-25]
+- [x] **B1** - Hero banner with lobster mascot & hover animations
+- [x] **B2** - OpenClaw chat simulator supports multiple guided demo intents with lightweight matching
+- [x] **B3** - "Open in Codespaces" + "Try Builder" CTA buttons
+- [x] **B4** - Simulated chat responses + YAML preview implemented for multiple canned automation scenarios
+- [x] **B5** - One-click copy-to-clipboard for generated YAML snippets
 
-### Phase C: Interactive ESPHome YAML Builder
-- [ ] **C1** - Left sidebar: board selector (ESP32, Pico W) + sensor picker
-- [ ] **C2** - Pin assignment visualization (interactive pinout diagram)
-- [ ] **C3** - Live YAML preview pane (updates in real-time as user builds)
-- [ ] **C4** - Simulated device card (shows fake live values: "25.4°C updating")
-- [ ] **C5** - "Simulate Flash" button (progress bar + confetti animation)
-- [ ] **C6** - Download YAML + Copy to clipboard + Add to docker-compose
-- [ ] **C7** - Pre-built templates gallery ("Steal & Customize")
+**Follow-up Note [2026-03-25]**:
+- Production build and lint pass in `Hub/`, but local browser testing still reports the hero simulator `Run` button and example chips as inert.
+- Treat as a Phase B runtime follow-up bug to revisit after Phase C work begins.
+- Likely next debugging targets: active `next dev` process state, browser hydration/runtime console errors, and stale local cache/session behavior.
+
+### Phase C: Interactive ESPHome YAML Builder ✅ **COMPLETE** [2026-03-26]
+- [x] **C1** - Left sidebar: board selector (ESP32, Pico W, ESP8266, Arduino) + sensor picker
+- [x] **C2** - Pin assignment visualization (interactive pinout diagram + pin-click assignment)
+- [x] **C3** - Live YAML preview pane (updates in real-time as user builds)
+- [x] **C4** - Simulated device card (fake live values update on interval)
+- [x] **C5** - "Simulate Flash" button (progress bar + confetti celebration)
+- [x] **C6** - Download YAML + Copy to clipboard + Add to docker-compose
+- [x] **C7** - Pre-built templates gallery ("Steal & Customize")
+
 
 ### Phase D: OpenClaw Skill Generator & ClawHub Integration
-- [ ] **D1** - Skill intent form ("I want my agent to…")
-- [ ] **D2** - Auto-generate `tools.py` + `SOUL.md` side-by-side preview
-- [ ] **D3** - "Publish to ClawHub" button with success animation
-- [ ] **D4** - Show live ClawHub URL + install command
-- [ ] **D5** - GitHub Actions auto-publish on skill folder changes
+- [ ] **D1** - Runtime mode contract in Hub (`demo`, `local-docker`, `render-cloud`)
+- [ ] **D2** - Skill intent form ("I want my agent to…") with side-by-side `tools.py` + `SOUL.md`
+- [ ] **D3** - One-click Hub action: Generate → Validate → Simulate/Run → Publish (Render job)
+- [ ] **D4** - Render orchestration API for high-level HA + ESPHome + agent interactions
+- [ ] **D5** - Live run console in Hub (streamed statuses from Render)
+- [ ] **D6** - Publish result panel: live ClawHub URL + copied install command
+- [ ] **D7** - Demo mode guardrails (explicit mode badge + simulated vs live execution labels)
+- [ ] **D8** - GitHub Actions auto-publish path for skill folder updates
 
 ### Phase E: Prototypes Gallery & Community Engagement
 - [ ] **E1** - Masonry grid of 6-8 featured prototypes (with animated GIFs)
@@ -116,7 +125,7 @@ git push origin main
 - [ ] **H6** - Newsletter signup capture
 - [ ] **H7** - Live deployment to vercel.app
 
----
+
 
 ## 🔍 Minor Changes & Iterations
 
@@ -128,12 +137,16 @@ git push origin main
 ### Structural Changes
 | Date | Component | Change | Status |
 |------|-----------|--------|--------|
-| TBD | | | |
+| 2026-03-25 | Frontend app | Active frontend lives in `Hub/` instead of `website/` referenced in older notes | ✅ Updated |
+| 2026-03-25 | Homepage hero | Added lobster mascot, CTA buttons, multi-intent demo chat simulator, YAML preview, YAML copy action | ✅ Updated |
+| 2026-03-25 | Builder route | Added dedicated `/builder` page as Phase C workspace | ✅ Added |
+| 2026-03-25 | Builder handoff | Added hero-to-builder template handoff using query param and shared scenario registry | ✅ Added |
 
 ### Bug Fixes & Polish
 | Date | Issue | Resolution | Status |
 |------|-------|-----------|--------|
-| TBD | | | |
+| 2026-03-25 | `Hub/` App Router build worker failed after adding builder handoff | Fixed `searchParams` contract in `Hub/app/builder/page.tsx`; build now passes | ✅ Fixed |
+| 2026-03-25 | Hero simulator buttons appear inert in local browser despite passing build/lint | Logged for follow-up; unresolved in browser session | 🟡 Open |
 
 ---
 
@@ -171,19 +184,31 @@ git push origin main
 - <100ms page loads
 - Free Hobby tier sufficient for MVP
 - Native Vercel AI SDK integration
-**Implementation**: Set root directory to `website/` folder in Vercel
+**Implementation**: Current app is in `Hub/`; set Vercel root directory to `Hub/`
 **Timeline**: Can deploy in 30 seconds after first push
 
+### Decision 8: Frontend Directory Canonical Path
+**Status**: ✅ **APPROVED**
+**Choice**: Use `Hub/` as the canonical frontend app location
+**Rationale**:
+- Matches the current implemented Next.js app
+- Avoids confusion with outdated `website/` references in earlier notes
+- Keeps future Phase B/C work aligned with the live codebase
+**Action**: Treat older `website/` references in this log as historical only unless a migration happens later
+
 ### Decision 2: Backend & Support Services
-**Status**: ✅ **APPROVED** (Optional for MVP)  
+**Status**: ✅ **APPROVED** (Required for Phase D orchestration)  
 **Choice**: **Render (Web Service or Background Worker)**  
 **Rationale**:
 - Docker-native integration
-- Perfect for future demo APIs or live HA preview
+- Supports a single backend orchestration layer for HA + ESPHome + agent workflows
 - Seamless GitHub integration
 - Free tier available
-**Timeline**: Add in Phase H or later if needed
-**Notes**: Keep MVP 100% client-side; Render is ready if we need backend later
+**Timeline**: Begin in Phase D (immediately after Phase C)
+**Notes**:
+- Vercel hosts `Hub/` frontend UX
+- Render hosts orchestration APIs/jobs and streamed run state
+- Local Docker remains the canonical runtime for device-near real flashing when needed
 
 ### Decision 3: Design System & UI Components
 **Status**: ✅ **APPROVED**  
@@ -292,7 +317,7 @@ git push origin main
 ---
 
 ### 3. OpenClaw Skill Generator & ClawHub Button
-**Goal**: User feels they contributed to ecosystem in 2 minutes
+**Goal**: User clicks once in Hub while orchestration continues in Render (HA + ESPHome + agents + ClawHub)
 
 **Form Panel**:
 - Text input: "What should your agent do?" (e.g., "Turn on fan when temp > 28°C and lock doors at 11pm")
@@ -310,19 +335,27 @@ git push origin main
 **Buttons**:
 - **Download Files** → Zips `tools.py` + `SOUL.md` + README + tests template
 - **Copy Python** → Copies generated code
-- **🚀 Publish to ClawHub** (big purple button):
-  - On click: "Generating skill manifest..."
-  - Success state: Shows skill name + link
-  - Link format: `https://clawhub.ai/tempotown/smart-home-justclick-goodnight`
-  - Shows: "Install command copied!" + `clawhub install tempotown/...`
-  - Celebration: Confetti animation + "You're officially part of the OpenClaw ecosystem!"
+- **🚀 Run in Render** (primary CTA):
+  - On click: Starts orchestrated run (`generate → validate → ha/esphome interaction → publish`)
+  - Live state stream in UI: queued, running, waiting, succeeded, failed
+  - Success state: Shows skill name + ClawHub link + copied install command
+  - Celebration: Confetti + "Published via Render orchestration"
+
+**Runtime Topology**:
+- Vercel (`Hub/`): UI, inputs, progress UI, mode switching
+- Render: orchestration API, job queue/worker, provider adapters
+- Providers:
+  - `demo`: no hardware, mocked HA/ESPHome responses
+  - `local-docker`: callback/bridge to user-local runtime
+  - `render-cloud`: high-level cloud simulation + publish flows
+- UI mode badge is always visible so users know if actions are simulated or live
 
 **Pre-built Skill Examples**:
 - "Goodnight Mode" (lock doors + lights off + fan off)
 - "Plant Alert" (notify if soil dry)
 - "Commute Safety" (lock doors when last phone leaves home)
 
-**Tech**: Vercel AI SDK for code generation, React Hook Form, code highlighting library
+**Tech**: Vercel AI SDK (UI layer), Render API worker orchestration, React Hook Form, code highlighting library, event streaming (SSE/WebSocket)
 
 ---
 
@@ -776,5 +809,3 @@ ClawHub (https://clawhub.ai)
 **Last Updated**: March 22, 2026  
 **Status**: 🎯 Ready to Build  
 **Next Session**: Begin Phase A scaffolding (website folder setup)
-
-

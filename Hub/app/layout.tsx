@@ -62,7 +62,7 @@ export default function RootLayout({
 
               {/* Desktop Menu */}
               <div className="hidden md:flex gap-8">
-                <Link href="#builder" className="text-gray-700 dark:text-gray-300 hover:text-ha-primary transition-colors">
+                <Link href="/builder" className="text-gray-700 dark:text-gray-300 hover:text-ha-primary transition-colors">
                   Builder
                 </Link>
                 <Link href="#gallery" className="text-gray-700 dark:text-gray-300 hover:text-ha-primary transition-colors">
@@ -119,7 +119,7 @@ export default function RootLayout({
             {isMenuOpen && (
               <div className="md:hidden pb-4 space-y-2">
                 <Link
-                  href="#builder"
+                  href="/builder"
                   className="block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-ha-surface-dark"
                   onClick={() => setIsMenuOpen(false)}
                 >

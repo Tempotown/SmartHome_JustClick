@@ -79,3 +79,6 @@ openclaw-skills/*/output/
 openclaw-skills/*/backup/
 docs/CLAWHUB-REFERENCE.md  # Generated from original files
 llama.cpp/
+setup-auth.sh
+bash.sh
+note.txt

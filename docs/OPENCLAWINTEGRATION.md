@@ -176,7 +176,7 @@ curl http://localhost:11434/api/generate -d '{
 
 ```bash
 # Clone llama.cpp
-git clone https://github.com/ggerganov/llama.cpp.git
+git clone https://github.com/ggerganov/llama.cpp.git 
 cd llama.cpp
 
 # Build
